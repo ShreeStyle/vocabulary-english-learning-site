@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ShreeSoundWaves - Learn Vocabulary Through Music</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Bree+Serif&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <a class="logo">ShreeSoundWaves</a>
+            <ul>
+                <li><a class="nav-link" data-page="1">Discover</a></li>
+                <li><a class="nav-link" data-page="2">Join</a></li>
+            </ul>
+        </div>
+
+        <div class="carousel-container">
+            <!-- Home Page -->
+            <div class="page page-home" id="page-0">
+                <div class="hero-section">
+                    <img src="shreeLOOK.png" alt="ShreeSoundWaves" class="hero-image">
+                    <div class="hero-text-container">
+                        <div class="corner-decoration top-left"></div>
+                        <div class="corner-decoration top-right"></div>
+                        <div class="corner-decoration bottom-left"></div>
+                        <div class="corner-decoration bottom-right"></div>
+                        <div class="hero-text-box">
+                            <div class="hero-text">
+                                Learn <span class="hero-text-accent">Vocabulary</span><br>Through <span class="hero-text-accent">Music</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Discover Page - PINK THEME -->
+            <div class="page page-discover" id="page-1">
+                <div class="discover-content">
+                    <div class="discover-left">
+                        <h1 class="page-title">Discover New Music</h1>
+                        
+                        <!-- Horizontal category boxes -->
+                        <div class="category-boxes">
+                            <!-- Albums Box -->
+                            <div class="category-box">
+                                <i class='bx bx-album'></i>
+                                <span>Albums</span>
+                            </div>
+                            
+                            <!-- Lyrics Box -->
+                            <div class="category-box">
+                                <i class='bx bx-microphone'></i>
+                                <span>Lyrics</span>
+                            </div>
+                            
+                            <!-- Artist Box -->
+                            <div class="category-box">
+                                <i class='bx bx-user-voice'></i>
+                                <span>Artist</span>
+                            </div>
+                        </div>
+                        
+                        <div class="fun-way-text">
+                            Learn English the fun way through my rockin' playlist!
+                        </div>
+                    </div>
+                    
+                    <div class="discover-right">
+                        <div class="album-grid">
+                            <div class="album-cover">
+                                <img src="2.jpg" alt="Album 1">
+                            </div>
+                            <div class="album-cover">
+                                <img src="3.jpg" alt="Album 2">
+                            </div>
+                            <div class="album-cover">
+                                <img src="4.jpg" alt="Album 3">
+                            </div>
+                            <div class="album-cover">
+                                <img src="1.jpg" alt="Album 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Join Page (Previously Coming Soon) -->
+            <div class="page page-coming-soon" id="page-2">
+                <div class="login-container">
+                    <!-- Left side content -->
+                    <div class="login-left">
+                        <h1 class="streaming-title">Start Streaming</h1>
+                        <h2 class="streaming-now">Now!</h2>
+                        
+                        <!-- Album showcase -->
+                        <div class="album-showcase">
+                            <div class="album-mini">
+                                <img src="Edsheeran.jpg" alt="Album Cover">
+                            </div>
+                            <div class="album-mini">
+                                <img src="shakira.jpg" alt="Album Cover">
+                            </div>
+                            <div class="album-mini">
+                                <img src="dualipa.jpg" alt="Album Cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right side login form -->
+                    <div class="login-right">
+                        <div class="login-form" id="auth-form">
+                            <!-- Status message for feedback - IMPORTANT: This is the element that displays messages -->
+                            <div class="status-message" id="status-message"></div>
+                            
+                            <!-- Form tabs -->
+                            <div class="form-tabs">
+                                <div class="form-tab active" data-form="signup">Sign Up</div>
+                                <div class="form-tab" data-form="login">Login</div>
+                            </div>
+                            
+                            <!-- Signup Form -->
+                            <div id="signup-form">
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" class="input-field">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" class="input-field">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="password">Password:</label>
+                                    <input type="password" id="password" class="input-field">
+                                </div>
+                                
+                                <button class="signup-btn" id="signup-btn">Sign Up</button>
+                            </div>
+                            
+                            <!-- Login Form -->
+                            <div id="login-form" style="display: none;">
+                                <div class="form-group">
+                                    <label for="login-email">Email:</label>
+                                    <input type="email" id="login-email" class="input-field">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="login-password">Password:</label>
+                                    <input type="password" id="login-password" class="input-field">
+                                </div>
+                                
+                                <button class="login-btn" id="login-btn">Login</button>
+                            </div>
+                        </div>
+                        
+                        <!-- User Account Section (shown after login) -->
+                        <div class="user-account" id="user-account">
+                            <h2>Welcome to ShreeSoundWaves!</h2>
+                            <div class="user-info" id="user-info">
+                                <!-- User info will be populated here -->
+                            </div>
+                            <button class="logout-btn" id="logout-btn">Logout</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer -->
+                <div class="page-footer">
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">About Us</a>
+                        <a href="#" class="footer-link">Contact</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class='bx bxl-twitter'></i> Twitter</a>
+                        <a href="#" class="social-link"><i class='bx bxl-facebook'></i> Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation indicators -->
+        <div class="swipe-indicator swipe-left">
+            <i class="swipe-indicator-arrow arrow-left"></i>
+        </div>
+        <div class="swipe-indicator swipe-right">
+            <i class="swipe-indicator-arrow arrow-right"></i>
+        </div>
+        <div class="swipe-up">
+            <i class="swipe-indicator-arrow arrow-up"></i>
+        </div>
+
+        <!-- JavaScript files - IMPORTANT: Load client.js first, then auth.js -->
+        <script src="client.js"></script>
+        <script src="auth.js"></script>
+    </body>
+</html>
