@@ -644,4 +644,29 @@ li {
     color: #e74c3c;
     border: 2px solid #e74c3c;
   }
+ 
   
+  /* Right side with album grid - UPDATED */
+.discover-right {
+    width: 65%;
+    padding-left: 50px;
+    /* Add padding-top to move grid upward */
+    padding-top: 40px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px; /* Increased gap slightly */
+    max-width: 500px; /* Reduced max-width */
+}
+
+.album-cover {
+    /* Reduced size from 300px to 200px */
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}

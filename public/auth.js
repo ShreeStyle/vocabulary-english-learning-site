@@ -126,24 +126,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const data = await registerUser(name, email, password);
-      window.showStatusMessage(data.message || "Registration successful!", false);
+      window.showStatusMessage(data.message || "Registration successful! Please log in to continue.", false);
       
-      // Store user data in localStorage
-      localStorage.setItem("token", data.user.email + "_" + Date.now());
-      localStorage.setItem("user", JSON.stringify(data.user));
-      
-      // Update UI for logged in user
-      window.updateUIForLoggedInUser(data.user);
-
       // Clear form fields
       document.getElementById("name").value = "";
       document.getElementById("email").value = "";
       document.getElementById("password").value = "";
 
-      // Redirect to discover page after successful signup
-      setTimeout(() => {
-        window.goToPage(1); // Navigate to discover page (index 1)
-      }, 2000); // Delay to ensure message is seen
+      // Switch to login tab after successful registration
+      const loginTab = document.querySelector('.form-tab[data-form="login"]');
+      if (loginTab) {
+        loginTab.click();
+      }
+      
+      // Pre-fill email field in login form
+      document.getElementById("login-email").value = email;
+      
     } catch (error) {
       window.showStatusMessage(error.message || "Registration failed", true);
     }
@@ -189,6 +187,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Clear login form fields
     document.getElementById("login-email").value = "";
     document.getElementById("login-password").value = "";
+
+    // Go back to home page
+    window.goToPage(0);
 
     window.showStatusMessage("You have been logged out", false);
   });

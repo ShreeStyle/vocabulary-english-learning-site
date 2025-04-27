@@ -53,9 +53,16 @@ window.updateUIForLoggedInUser = function(user) {
   document.getElementById("user-account").style.display = "block";
 };
 
-// Function to go to a specific page
+// Function to go to a specific page with authentication check
 window.goToPage = function(pageIndex) {
   if (pageIndex < 0 || pageIndex >= totalPages) return;
+  
+  // Check if trying to access Discover page (index 1) without being logged in
+  if (pageIndex === 1 && !window.isLoggedIn()) {
+    window.showStatusMessage("Please sign up and log in first to access the Discover page", true);
+    window.goToPage(2); // Redirect to Join/Login page instead
+    return;
+  }
   
   // Save current page
   const oldPage = currentPage;
@@ -81,7 +88,7 @@ window.goToPage = function(pageIndex) {
   });
   
   // If navigating to discover page (page 1) after login/signup
-  if (pageIndex === 1 && (oldPage === 2) && window.isLoggedIn()) {
+  if (pageIndex === 1 && window.isLoggedIn()) {
     const user = JSON.parse(localStorage.getItem("user"));
     // Add welcome message to the fun-way-text element
     const funWayText = document.querySelector('.fun-way-text');
@@ -90,6 +97,25 @@ window.goToPage = function(pageIndex) {
     }
   }
 };
+
+// Function to check category boxes in discover page
+function setupCategoryBoxes() {
+  const categoryBoxes = document.querySelectorAll('.category-box');
+  
+  categoryBoxes.forEach(box => {
+    box.addEventListener('click', function() {
+      if (!window.isLoggedIn()) {
+        window.showStatusMessage("Please sign up and log in first to access this feature", true);
+        window.goToPage(2); // Redirect to Join/Login page
+        return;
+      }
+      
+      // If logged in, handle the category click (you can add specific functionality later)
+      const categoryType = this.querySelector('span').textContent;
+      console.log(`${categoryType} category clicked`);
+    });
+  });
+}
 
 // Initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", function() {
@@ -141,4 +167,10 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
+  
+  // Set up category boxes in discover page
+  setupCategoryBoxes();
+  
+  // Start on home page
+  window.goToPage(0);
 });
